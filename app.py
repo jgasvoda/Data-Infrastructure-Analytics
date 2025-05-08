@@ -260,22 +260,7 @@ def create_ai_agent_response(df: pd.DataFrame, query: str) -> str:
     # 4.  Present the results in a user-friendly way.
     # 5.  Cite the source data used to answer the query.
 
-    if "average revenue" in query.lower():
-        if 'Revenue' in df.columns:
-            avg_revenue = df['Revenue'].mean()
-            return f"The average revenue is {avg_revenue:.2f} (based on the 'Revenue' column)."
-        else:
-            return "I cannot calculate the average revenue because the 'Revenue' column is not present in the data."
-    elif "growth" in query.lower():
-        if 'Revenue' in df.columns and 'Date' in df.columns:
-          df_result = calculate_growth(df, 'Revenue', 'Date')
-          return f"Growth calculation done, look for 'growth' column. First growth number may not be correct as there is no previous period (based on the 'Revenue' and 'Date' columns)."
-        else:
-            return "I cannot calculate growth because the 'Revenue' or 'Date' column is not present in the data."
-    elif "show me the data" in query.lower():
-        return f"Here is the data: {df.head().to_markdown(index=False)}"
-    else:
-        return "I am a very simple AI agent and I do not understand that query.  Try asking about average revenue, or growth."
+    return "Not yet implemented"
 
 # 5. Output and Reporting
 def export_to_excel(df: pd.DataFrame, file_name: str) -> None:
